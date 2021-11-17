@@ -1,30 +1,32 @@
 <template>
   <div>
     <LikeHeader>
-      <template v-slot:title="slotProps">
-        <h2>こんにちは</h2>
-        <h2>{{ slotProps }}</h2>
-      </template>
-      <template v-slot:number>
-        <p>{{ number }}</p>
-      </template>
+      <h3>はじめまして</h3>
     </LikeHeader>
     <LikeNumber :number="number"></LikeNumber>
     <LikeNumber :number="number"></LikeNumber>
+    <button @click="currentComponent = 'Home'">Home</button>
+    <button @click="currentComponent = 'About'">About</button>
+    <component :is="currentComponent"></component>
   </div>
 </template>
 
 <script>
 import LikeHeader from "./components/LikeHeader.vue";
+import About from "./components/About.vue";
+import Home from "./components/Home.vue";
 
 export default {
   data() {
     return {
-      number: 10
+      number: 10,
+      currentComponent: "Home"
     };
   },
   components: {
-    LikeHeader
+    LikeHeader,
+    About,
+    Home
   }
 };
 </script>
