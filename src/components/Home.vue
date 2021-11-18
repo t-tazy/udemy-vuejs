@@ -2,21 +2,23 @@
   <div>
     <p v-border:solid.round.shadow="{width: '10px', color: 'blue'}">Home</p>
     <h2>{{ title | lowerCase }}</h2>
+    <CountNumber></CountNumber>
   </div>
 </template>
 
 <script>
+import CountNumber from "./CountNumber.vue";
+import { tokyoNumber } from "@/tokyoNumber";
+
 export default {
+  mixins: [tokyoNumber],
   data() {
     return {
       tmpData: "hello",
-      title: "Welcome to Tokyo"
     }
   },
-  filters: {
-    lowerCase(value) {
-      return value.toLowerCase();
-    }
+  components: {
+    CountNumber
   },
   directives: {
     border(el, binding) {
