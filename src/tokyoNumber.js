@@ -8,5 +8,8 @@ export const tokyoNumber = {
     lowerCase(value) {
       return value.toLowerCase();
     }
+  },
+  created() {
+    console.log("created mixin")
   }
 }
