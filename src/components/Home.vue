@@ -1,7 +1,7 @@
 <template>
   <div>
     <p v-border:solid.round.shadow="{width: '10px', color: 'blue'}">Home</p>
-    <h2>{{ title | upperCase }}</h2>
+    <h2>{{ title | lowerCase }}</h2>
   </div>
 </template>
 
@@ -11,6 +11,11 @@ export default {
     return {
       tmpData: "hello",
       title: "Welcome to Tokyo"
+    }
+  },
+  filters: {
+    lowerCase(value) {
+      return value.toLowerCase();
     }
   },
   directives: {
